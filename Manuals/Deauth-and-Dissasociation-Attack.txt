@@ -1,0 +1,26 @@
+DeAuth attack
+
+Start Airgeddon
+
+cd ~/airgeddon
+
+sudo bash airgeddon.sh
+
+Run through setup process
+
+Select network interface
+
+Put interface into monitor mode
+
+Select 'Dos attacks menu'
+
+Select 'Explore for targets' Wait until you see your target network and then use Ctrl + C to stop target identification
+
+Select your target
+
+Select 'DeAuth/disassoc amok mdk4 attack'
+
+Begin the attack, use Ctrl + C to stop
+
+When attack is finished, put interface back into managed mode
+

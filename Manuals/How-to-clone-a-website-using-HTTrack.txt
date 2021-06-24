@@ -1,0 +1,8 @@
+How to clone a website with HTTrack
+
+Clone your desired website:
+
+httrack [URL of Website] -O [Directory to clone into (Must be owned by you)]
+
+After process has finished, go to browser, and type in 'file//' followed by the path to the html file that you want to use. If an error message occurs saying that the file could not be accessed, make sure the directory is owned by you.
+

