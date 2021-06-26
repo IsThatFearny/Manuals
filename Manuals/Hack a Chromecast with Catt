@@ -1,0 +1,26 @@
+Hacking a Chromecast with Catt
+
+Find a chromecast:
+
+catt scan
+
+
+To cast an image or a gif:
+
+catt cast ./mygif.gif
+
+To cast a remote video:
+
+catt cast "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
+To cast a local video:
+
+catt cast ./myvideo.mp4
+
+To cast a website:
+
+catt cast_site https://mysite.com
+
+To add videos to the queue:
+
+cat add "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
