@@ -1,0 +1,34 @@
+Bluetooth Reconnaissance Methods
+
+Method 1: hcitool
+
+Start hcitool:
+
+hcitool hci0 up
+
+Scan for devices:
+
+hcitool scan
+
+This will give you the MAC address and name of the device. Take note of the MAC Address.
+
+
+Method 2: sdptool
+
+This tool gets you more information about the bluetooth device. Use this command:
+
+sdptool browse [MAC ADDRESS]
+
+
+Method 3: l2ping
+
+Pings devices to see whether the device is within reach. Use this command:
+
+l2ping [MAC ADDRESS]
+
+
+Method 4: btscanner
+
+A GUI interface. Only requires this command:
+
+btscanner
