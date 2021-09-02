@@ -1,0 +1,32 @@
+How to generate a Github SSH Key and correctly configure repositories
+
+Use this command:
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+Use no passphrase.
+
+Start the SSH agent:
+
+eval "$(ssh-agent -s)"
+
+Add the key to the SSH agent:
+
+ssh-add ~/.ssh/id_ed25519
+
+Go to Github and add the key after copying it to your clipboard with:
+(On Windows Subsystem for Linux)
+
+clip.exe < ~/.ssh/id_ed25519.pub
+
+(On a Linux Distro)
+
+xclip < ~/.ssh/id_ed25519.pub
+
+
+To configure the repository, use this command while in the folder:
+
+git remote set-url origin git@github.com:username/repo.git
+
+
+Alternatively, you can use the script that is available at https://github.com/IsThatFearny/bashscripts  
